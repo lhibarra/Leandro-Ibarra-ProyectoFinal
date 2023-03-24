@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from AppMaquinas.views import index, MaquinaList, Login, Logout, SignUp, ProfileCreate
+from AppMaquinas.views import index, MaquinaList, Login, Logout, SignUp, ProfileCreate, ProfileUpdate
 urlpatterns = [
     path('admin/', admin.site.urls),
     #urls maquinas
@@ -29,7 +29,7 @@ urlpatterns = [
     path('signup/', SignUp.as_view(), name="signup"),
     #urls manejo perfil
     path('profile/create', ProfileCreate.as_view(), name="profile-create"),
-    path('profile/update/<pk>/', ProfileCreate.as_view(), name="profile-update"),
+    path('profile/update/<pk>/', ProfileUpdate.as_view(), name="profile-update"),
 
 
 ]
