@@ -1,0 +1,38 @@
+{%extends "AppMaquinas/index.html" %}
+
+{% load static %}
+
+
+
+{%block cards %}
+
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+    {% for maquina in maquinas %}
+    <div class="col">
+        <div class="card shadow-sm">
+            <img class="card-img-top" style="height: 225px; width: 100%; display: block;" src="{{maquina.image_url}}"
+                data-holder-rendered="true">
+            <div class="card-body">
+                <p class="card-text">{{platillo.detalle}}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        
+                        <a href="" type="button"
+                            class="btn btn-sm btn-outline-secondary">Borrar</a>
+                        <a href="" type="button"
+                            class="btn btn-sm btn-outline-secondary">Actualizar</a>
+                       
+                    </div>
+                    <small class="text-muted">${{ maquina.precio }}</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+
+{% endblock %}
