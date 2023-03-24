@@ -17,10 +17,20 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from AppMaquinas.views import index, MaquinaList
+from AppMaquinas.views import index, MaquinaList, Login, Logout, SignUp, ProfileCreate
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #urls maquinas
     path('', index, name="index"),
     path('maquina/list', MaquinaList.as_view(), name="maquina-list"),
+    #url ingreso sistema
+    path('login/', Login.as_view(), name="login"),
+    path('logout/', Logout.as_view(), name="logout"),
+    path('signup/', SignUp.as_view(), name="signup"),
+    #urls manejo perfil
+    path('profile/create', ProfileCreate.as_view(), name="profile-create"),
+    path('profile/update/<pk>/', ProfileCreate.as_view(), name="profile-update"),
+
+
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
