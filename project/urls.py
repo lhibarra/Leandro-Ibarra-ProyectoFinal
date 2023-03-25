@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 from AppMaquinas.views import ( index, MaquinaList, 
 Login, Logout, SignUp, ProfileCreate, ProfileUpdate, 
 MaquinaMineList, MaquinaUpdate, MaquinaDetail, MaquinaDelete,
-MaquinaCreate
+MaquinaCreate, MaquinaSearch
 )
 
 urlpatterns = [
@@ -33,6 +33,7 @@ urlpatterns = [
     path('maquina/update/<pk>/', MaquinaUpdate.as_view(), name="maquina-update"),
     path('maquina/delete/<pk>/', MaquinaDelete.as_view(), name="maquina-delete"),
     path('maquina/create/', MaquinaCreate.as_view(), name="maquina-create"),
+    path('maquina/buscar/', MaquinaSearch.as_view(), name="maquina-buscar"),
     #url ingreso sistema
     path('login/', Login.as_view(), name="login"),
     path('logout/', Logout.as_view(), name="logout"),

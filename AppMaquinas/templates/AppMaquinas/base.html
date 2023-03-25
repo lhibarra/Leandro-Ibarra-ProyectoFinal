@@ -157,7 +157,7 @@
               <a class="nav-link disabled" href="https://getbootstrap.com/docs/5.0/examples/carousel/#" tabindex="-1" aria-disabled="true">Disabled</a>
             </li> -->
           </ul>
-          <form action="" class="d-flex buscador">
+          <form action="{% url 'maquina-buscar' %}" class="d-flex buscador">
             <input class="form-control me-2" name="criterio" type="search" placeholder="Buscar máquina"
               aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Buscar</button>

@@ -52,7 +52,15 @@ class MaquinaCreate(LoginRequiredMixin, CreateView):
         form.instance.propietario = self.request.user # Obtengo id del usuario y lo guardo en propietario
         return super().form_valid(form)
 
+#Buscar maquina por nombre
+class MaquinaSearch(ListView):
+    model = Maquina
+    context_object_name = "maquinas"
 
+    def get_queryset(self):
+        criterio = self.request.GET.get("criterio")
+        resultado = Maquina.objects.filter(nombre__icontains=criterio).all()
+        return resultado
     
 #entrar y salir al sistema
 class Login(LoginView):
