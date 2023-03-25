@@ -17,12 +17,22 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from AppMaquinas.views import index, MaquinaList, Login, Logout, SignUp, ProfileCreate, ProfileUpdate
+from AppMaquinas.views import ( index, MaquinaList, 
+Login, Logout, SignUp, ProfileCreate, ProfileUpdate, 
+MaquinaMineList, MaquinaUpdate, MaquinaDetail, MaquinaDelete,
+MaquinaCreate
+)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     #urls maquinas
     path('', index, name="index"),
     path('maquina/list', MaquinaList.as_view(), name="maquina-list"),
+    path('maquina/list/mine', MaquinaMineList.as_view(),name="maquina-mine"),
+    path('maquina/detail/<pk>/', MaquinaDetail.as_view(), name="maquina-detail"),
+    path('maquina/update/<pk>/', MaquinaUpdate.as_view(), name="maquina-update"),
+    path('maquina/delete/<pk>/', MaquinaDelete.as_view(), name="maquina-delete"),
+    path('maquina/create/', MaquinaCreate.as_view(), name="maquina-create"),
     #url ingreso sistema
     path('login/', Login.as_view(), name="login"),
     path('logout/', Logout.as_view(), name="logout"),
@@ -30,6 +40,7 @@ urlpatterns = [
     #urls manejo perfil
     path('profile/create', ProfileCreate.as_view(), name="profile-create"),
     path('profile/update/<pk>/', ProfileUpdate.as_view(), name="profile-update"),
+
 
 
 ]

@@ -1,10 +1,12 @@
 {%extends "AppMaquinas/index.html" %}
 
 {% load static %}
-
-
-
 {%block cards %}
+
+{% if not maquinas %}
+    <h1>NO HAY MÁQUINAS DICPONIBLES PARA MOSTRAR</h1>
+{% endif %}
+
 
 
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -15,16 +17,18 @@
             <img class="card-img-top" style="height: 225px; width: 100%; display: block;" src="{{maquina.image_url}}"
                 data-holder-rendered="true">
             <div class="card-body">
-                <p class="card-text">{{maquina.detalle}}</p>
-                <p class="card-text">{{maquina.estado}}</p>
+                <p class="card-text">{{maquina.nombre}}</p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                        
-                        <a href="" type="button"
+                    <a href="{% url 'maquina-detail' maquina.id %}" type="button" 
+                        class="btn btn-sm btn-outline-secondary">Detalle</a>
+
+                    {% if user.is_authenticated and user.id == maquina.propietario.id %}
+                        <a href="{% url 'maquina-delete' maquina.id %}" type="button"
                             class="btn btn-sm btn-outline-secondary">Borrar</a>
-                        <a href="" type="button"
+                        <a href="{% url 'maquina-update' maquina.id %}" type="button"
                             class="btn btn-sm btn-outline-secondary">Actualizar</a>
-                       
+                    {% endif %}
                     </div>
                     <small class="text-muted">${{ maquina.precio }}</small>
                 </div>
@@ -33,7 +37,5 @@
     </div>
     {% endfor %}
 </div>
-
-
 
 {% endblock %}

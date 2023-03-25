@@ -1,0 +1,15 @@
+{% extends "AppMaquinas/base.html" %}
+
+{% load static %}
+
+{% block main %}
+    <div style="margin-top: 40px;">
+        <p style="margin-top: 10px;">Esta seguro de ELIMINAR esta publicación? {{ maquina.nombre }}? </p>
+        <form method="post">
+            {% csrf_token %}
+            {{form}}
+            <input class="btn btn-danger" type="submit" value="Borrar">
+            <a class="btn btn-primary" href="{% url 'maquina-list' %}">Cancelar</a>
+        </form>
+    </div>
+{%endblock%}

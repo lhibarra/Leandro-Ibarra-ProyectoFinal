@@ -104,9 +104,7 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <div class="container-fluid">
         {%if user.profile.avatar.url %}
-        <img src="{{user.profile.avatar_url}}" height="100%" width="64px">
-        {% else %}
-        <a class="navbar-brand" href="https://getbootstrap.com/docs/5.0/examples/carousel/#">Carousel</a>
+          <img src="{{user.profile.avatar_url}}" height="100%" width="64px">
         {% endif %}
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
           aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -118,19 +116,19 @@
               <a class="nav-link active" aria-current="page" href="{% url  'index' %}">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'maquina-list' %}">Ver Máquinas</a>
+              <a class="nav-link" href="{% url 'maquina-list' %}">Ver Máq.</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href=""> Enviar Mensajes</a>
-            </li>
+            
             {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link" href="">Mis Posts</a>
+              <a class="nav-link" href="{% url 'maquina-mine' %}">Mis Maq.</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="">Ingresa tu máquina</a>
+              <a class="nav-link" href="{% url 'maquina-create' %}">Ingresa tu Máq</a>
             </li>
-
+              <li class="nav-item">
+                <a class="nav-link" href=""> Enviar Mensajes</a>
+              </li>
             {% if user.profile %}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'profile-update' user.profile.id %}">Editar Perfil</a>
