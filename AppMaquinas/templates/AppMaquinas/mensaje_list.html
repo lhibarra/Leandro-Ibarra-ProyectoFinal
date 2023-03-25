@@ -1,0 +1,26 @@
+{% extends "AppMaquinas/base.html" %}
+
+{% load static %}
+
+{% block main %}
+    
+
+    <div style="margin-top: 40px;">
+        {% if not mensajes %}
+        <br>
+            <h>No tienes mensajes</h>
+        {% else %}
+                <h1> Tus Mensajes </h1>
+                    <ul>
+                        {% for mensaje in mensajes %}
+                        <li>Recibiste  mensaje de: {{mensaje.email}}
+                            <br>
+                            {{ mensaje.mensaje }}
+                            <br>
+                            <a href="{% url 'mensaje-delete' mensaje.id %}">Borrar</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+        {% endif %}
+{% endblock %}

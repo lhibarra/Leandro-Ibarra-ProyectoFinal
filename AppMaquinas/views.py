@@ -94,3 +94,30 @@ class ProfileUpdate(LoginRequiredMixin, UserPassesTestMixin,  UpdateView):
 
     def test_func(self):
         return Profile.objects.filter(user=self.request.user).exists()
+
+#Mensajeria
+
+
+class MensajeCreate(CreateView):
+    model = Mensaje
+    success_url = reverse_lazy('maquina-list')
+    fields = '__all__'
+
+
+class MensajeDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Mensaje
+    context_object_name = "mensaje"
+    success_url = reverse_lazy("mensaje-list")
+
+    def test_func(self):
+        return Mensaje.objects.filter(destinatario=self.request.user).exists()
+
+
+class MensajeList(LoginRequiredMixin, ListView):
+    model = Mensaje
+    context_object_name = "mensajes"
+
+    def get_queryset(self):
+        import pdb
+        pdb.set_trace
+        return Mensaje.objects.filter(destinatario=self.request.user).all()

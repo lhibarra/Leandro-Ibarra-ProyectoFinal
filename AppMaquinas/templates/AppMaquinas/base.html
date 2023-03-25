@@ -127,7 +127,10 @@
               <a class="nav-link" href="{% url 'maquina-create' %}">Ingresa tu Máq</a>
             </li>
               <li class="nav-item">
-                <a class="nav-link" href=""> Enviar Mensajes</a>
+                <a class="nav-link" href="{% url 'mensaje-create' %}"> Enviar Mensajes</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'mensaje-list' %}">Tus Mjes</a>
               </li>
             {% if user.profile %}
             <li class="nav-item">
@@ -139,9 +142,7 @@
             </li>
             {% endif %}
 
-            <li class="nav-item">
-              <a class="nav-link" href="">Mensajes</a>
-            </li>
+            
             <li class="nav-item">
               <a class="nav-link" href="{% url 'signup' %}">Registrate</a>
             </li>
