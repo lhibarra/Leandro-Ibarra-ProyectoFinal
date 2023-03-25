@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from AppMaquinas.models import Maquina, Profile, Mensaje
+from AppMaquinas.forms import UsuarioForm #Formulario en que agregue campos de apellido y nombre
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.views import LoginView, LogoutView
@@ -72,7 +73,7 @@ class Logout(LogoutView):
 
 
 class SignUp(CreateView):
-    form_class = UserCreationForm
+    form_class = UsuarioForm
     template_name = 'registration/signup.html'
     success_url = reverse_lazy('maquina-list')
 
