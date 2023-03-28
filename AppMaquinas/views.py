@@ -17,8 +17,8 @@ class MaquinaList(ListView):
 
 class MaquinaMineList(LoginRequiredMixin, MaquinaList):
 
-    def get_queryset(self):
-        return Maquina.objects.filter(propietario=self.request.user.id).all()
+    def get_queryset(self): #Filtramos las maquinas publicadas x 1 usuario y la mostramos en orden descendiente
+        return Maquina.objects.filter(propietario=self.request.user.id).all().order_by("-creado_el")
 
 
 class MaquinaDetail(DetailView):
