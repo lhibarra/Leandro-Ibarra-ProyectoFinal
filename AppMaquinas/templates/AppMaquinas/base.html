@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- saved from url=(0049)https://getbootstrap.com/docs/5.3/examples/album/ -->
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -9,28 +9,30 @@
   <meta name="description" content="">
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Hugo 0.108.0">
-  <title>Album example · Bootstrap v5.3</title>
-
+  <title>Rent Tools</title>
   <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/album/">
-
-
-
-
-
   <link href="{% static 'AppMaquinas/css/bootstrap.min.css' %}" rel="stylesheet"
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-
+  <link rel="stylesheet" href="{% static 'AppMaquinas/css/style.css' %}">
   <!-- Favicons -->
-  <link rel="apple-touch-icon" href="https://getbootstrap.com/docs/5.3/assets/img/favicons/apple-touch-icon.png"
-    sizes="180x180">
-  <link rel="icon" href="https://getbootstrap.com/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32"
-    type="image/png">
-  <link rel="icon" href="https://getbootstrap.com/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16"
-    type="image/png">
-  <link rel="manifest" href="https://getbootstrap.com/docs/5.3/assets/img/favicons/manifest.json">
-  <link rel="mask-icon" href="https://getbootstrap.com/docs/5.3/assets/img/favicons/safari-pinned-tab.svg"
-    color="#712cf9">
-  <link rel="icon" href="https://getbootstrap.com/docs/5.3/assets/img/favicons/favicon.ico">
+  <link rel="apple-touch-icon" sizes="57x57" href="{% static 'AppMaquinas/assets/apple-icon-57x57.png' %}">
+  <link rel="apple-touch-icon" sizes="60x60" href="{% static 'AppMaquinas/assets/apple-icon-60x60.png' %}">
+  <link rel="apple-touch-icon" sizes="72x72" href="{% static 'AppMaquinas/assets/apple-icon-72x72.png' %}">
+  <link rel="apple-touch-icon" sizes="76x76" href="{% static 'AppMaquinas/assets/apple-icon-76x76.png' %}">
+  <link rel="apple-touch-icon" sizes="114x114" href="{% static 'AppMaquinas/assets/apple-icon-114x114.png' %}">
+  <link rel="apple-touch-icon" sizes="120x120" href="{% static 'AppMaquinas/assets/apple-icon-120x120.png' %}">
+  <link rel="apple-touch-icon" sizes="144x144" href="{% static 'AppMaquinas/assets/apple-icon-144x144.png' %}">
+  <link rel="apple-touch-icon" sizes="152x152" href="{% static 'AppMaquinas/assets/apple-icon-152x152.png' %}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'AppMaquinas/assets/apple-icon-180x180.png' %}">
+  <link rel="icon" type="image/png" sizes="192x192" href="{% static 'AppMaquinas/assets/android-icon-192x192.png' %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'AppMaquinas/assets/favicon-32x32.png' %}">
+  <link rel="icon" type="image/png" sizes="96x96" href="{% static 'AppMaquinas/assets/favicon-96x96.png' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'AppMaquinas/assets/favicon-16x16.png' %}">
+  <link rel="manifest" href="{% static 'AppMaquinas/assets/manifest.json' %}">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
   <meta name="theme-color" content="#712cf9">
 
 
@@ -43,13 +45,236 @@
       user-select: none;
     }
 
-    form {
-      margin-top: 80px;
+    header {
+      height: 15%;
+      margin-top: 100px;
+    }
+
+    header nav div div ul li a {
+      padding: 4px !important;
+    }
+
+    main {
+      min-height: 80vh;
+      /* padding: 5%; */
+    }
+
+    main div h1 {
+      margin: 20px;
+      padding: 20px;
+    }
+
+    .main div form p input,
+    .main div form p textarea,
+    .main div form p select {
+      width: 300px;
+      padding: 2px;
+      margin: 2px;
+    }
+
+    .main div form p label,
+    .main form p label {
+      width: 100px;
+      padding: 2px;
+      margin: 2px;
+    }
+
+    .formulario-mensaje form p label {
+      width: 80px;
+    }
+
+    .boton-actualizar {
+      background-color: #198754;
+      padding: 6px 12px;
+      font-size: 16px;
+      color: white;
+      border-radius: 10%;
+      margin: 5px;
+    }
+
+    .boton {
+      width: 100px;
+      height: 40px;
+      border: 1px;
+      margin: 2px;
+    }
+
+    .botones {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      margin-left: 10px;
+    }
+
+    .main form p,
+    .main p {
+      padding: 5px;
+      margin: 5px;
+      max-width: 100%;
+      font-size: 20px;
+    }
+
+    .main form p input {
+      margin: 5px;
+    }
+
+    body {
+      padding-bottom: 0;
     }
 
     .buscador {
       margin-top: 8px;
     }
+
+    .div-img {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .nombre {
+      text-align: center;
+      margin: 5px;
+      padding: 5px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .img-h,
+    .img-index {
+      width: 200px;
+      height: 150px;
+      padding: 5px;
+    }
+
+    .hero {
+      height: 85%;
+      margin-top: auto;
+      margin-bottom: 0;
+      padding: 20px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .row {
+      margin: 10px;
+    }
+    .col {
+      width: 32%;
+    }
+
+    .detalle-herramientas {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .nombre-herramienta {
+      margin: 10px;
+      padding: 10px;
+      font-size: 50px;
+    }
+
+    .foto-herramienta {
+      height: 300px;
+      width: 300px;
+    }
+
+    .texto-herramienta {
+      font-size: 30px;
+    }
+
+    .texto-herramienta,
+    .texto-herramienta-detalle {
+      width: 200px;
+      margin: 2px;
+      padding: 2px;
+      text-align: center;
+    }
+
+    .texto-herramienta-detalle {
+      font-size: 20px;
+    }
+
+    .main h1,
+    .main h2 {
+      font-size: 33px;
+      margin: 5px;
+      padding: 5px;
+      text-align: center;
+    }
+
+    .main div p,
+    .main div {
+      margin: 5px;
+      padding: 5px;
+    }
+
+    .perfil-autor {
+      display: flex;
+      flex-direction:row-reverse;
+    }
+    .foto-autor {
+      width: 160px;
+      height: 160px;
+      margin: 2px;
+      margin-left: 10px;
+      padding: 2px;
+    }
+    .texto-autor {
+      margin: 10px 20px;
+      padding: 10px;
+      font-size: 20px;
+      text-align: center;
+      width: 75%;
+    }
+    .main section {
+      margin-top: 100px;
+    }
+    .footer {
+      background-color: #e8e1d7;
+      margin: 5px;
+      padding: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      height: 20%;
+      width: 100%;
+      align-content: center;
+      position: relative;
+      bottom: 0%;
+    }
+
+    .footer .redes {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      width: 100%;
+      align-content: center;
+      bottom: 0px;
+    }
+
+    .footer .redes h3 {
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      font-size: small;
+      margin: 2px;
+      padding: 2px;
+    }
+
+    .footer .redes img,
+    .footer .redes .github a img {
+      height: 20px;
+      width: 20px;
+      margin: 2px;
+      padding: 2px;
+    }
+
 
     @media (min-width: 768px) {
       .bd-placeholder-img-lg {
@@ -104,7 +329,7 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <div class="container-fluid">
         {%if user.profile.avatar.url %}
-          <img src="{{user.profile.avatar_url}}" height="100%" width="64px">
+        <img src="{{user.profile.avatar_url}}" height="100%" width="64px">
         {% endif %}
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
           aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -116,9 +341,9 @@
               <a class="nav-link active" aria-current="page" href="{% url  'index' %}">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'maquina-list' %}">Ver Máq.</a>
+              <a class="nav-link" href="{% url 'maquina-list' %}">Ver</a>
             </li>
-            
+
             {% if user.is_authenticated %}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'maquina-mine' %}">Mis Maq.</a>
@@ -126,12 +351,12 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'maquina-create' %}">Ingresa tu Máq</a>
             </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'mensaje-create' %}"> Enviar Mensajes</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'mensaje-list' %}">Tus Mjes</a>
-              </li>
+            <li>
+              <a class="nav-link" href="{% url 'mensaje-create' %}">Enviar Mensaje</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'mensaje-list' %}">Mjes</a>
+            </li>
             {% if user.profile %}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'profile-update' user.profile.id %}">Editar Perfil</a>
@@ -142,10 +367,8 @@
             </li>
             {% endif %}
 
-            
-            
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'logout' %}">{{ user.username }} | Salir</a>
+              <a class="nav-link" href="{% url 'logout' %}">Hola {{ user.username }}| Salir</a>
             </li>
             {% else %}
             <li class="nav-item">
@@ -155,9 +378,10 @@
               <a class="nav-link" href="{% url 'login' %}">Ingresar</a>
             </li>
             {% endif %}
-            <!-- <li class="nav-item">
-              <a class="nav-link disabled" href="https://getbootstrap.com/docs/5.0/examples/carousel/#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li> -->
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}">Acerca de mi</a>
+            </li>
+
           </ul>
           <form action="{% url 'maquina-buscar' %}" class="d-flex buscador">
             <input class="form-control me-2" name="criterio" type="search" placeholder="Buscar máquina"
@@ -168,17 +392,17 @@
       </div>
     </nav>
   </header>
-
-  {% block main %}{% endblock %}
-
-  <footer class="text-muted py-5">
-    <div class="container">
-      <p class="float-end mb-1">
-        <a href="https://getbootstrap.com/docs/5.3/examples/album/#">Back to top</a>
-      </p>
-      <p class="mb-1">Album example is © Bootstrap, but please download and customize it for yourself!</p>
-      <p class="mb-0">New to Bootstrap? <a href="https://getbootstrap.com/">Visit the homepage</a> or read our <a
-          href="https://getbootstrap.com/docs/5.3/getting-started/introduction/">getting started guide</a>.</p>
+  <main class="main">
+    {% block main %}{% endblock %}
+  </main>
+  <footer class="footer">
+    <div class="redes">
+      <img src="{%static 'AppMaquinas/assets/copyright.png'%}" alt="simbolo copyright">
+      <h3>Leandro Hernan Ibarra</h3>
+      <div class="github">
+        <a href="https://github.com/lhibarra"><img src="{%static 'AppMaquinas/assets/github.png'%}"
+            alt="logo github"></a>
+      </div>
     </div>
   </footer>
 
@@ -186,9 +410,6 @@
   <script src="{% static 'AppMaquinas/js/bootstrap.bundle.min.js' %}"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
-
-
-
 
 </body>
 

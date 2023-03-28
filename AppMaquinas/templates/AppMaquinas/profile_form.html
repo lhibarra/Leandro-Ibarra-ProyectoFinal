@@ -5,7 +5,9 @@
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{form.as_p}}
-    <input type="submit" value="Actualizar">
-    <a class="btn btn-primary" href="{% url 'maquina-mine' %}">Cancelar</a>
+    <div class="botones">
+    <input type="submit" value="Actualizar"class="boton-actualizar boton" >
+    <a class="btn btn-primary boton" href="{% url 'maquina-mine' %}">Cancelar</a>
+    </div>
 </form>
 {% endblock %}

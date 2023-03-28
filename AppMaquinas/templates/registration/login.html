@@ -5,8 +5,9 @@
 <form method="post">
     {% csrf_token %}
     {{form.as_p}}
-    <input type="submit" value="Ingresar">
+    <div class="botones">
+    <input type="submit" value="Ingresar" class="boton-actualizar boton">
+    <a class="btn btn-primary boton" href="{% url 'index' %}">Cancelar</a>
+    </div>
 </form>
-
-
 {% endblock %}

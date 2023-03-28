@@ -3,12 +3,14 @@
 {% load static %}
 
 {% block main %}
-<div style="margin-top:40px">
+<div class="formulario-mensaje">
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{form.as_p}}
-        <input type="submit" value="Enviar">
-        <a class="btn btn-primary" href="{% url 'maquina-mine' %}">Cancelar</a>
+        <div class="botones">
+        <input type="submit" value="Enviar" class="boton-actualizar boton">
+        <a class="btn btn-primary boton" href="{% url 'maquina-mine' %}">Cancelar</a>
+        </div>
     </form>
 </div>
 {% endblock %}

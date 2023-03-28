@@ -4,7 +4,7 @@ from AppMaquinas.forms import UsuarioForm #Formulario en que agregue campos de a
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.views import LoginView, LogoutView
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm 
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 def index(request):
@@ -75,7 +75,7 @@ class Logout(LogoutView):
 class SignUp(CreateView):
     form_class = UsuarioForm
     template_name = 'registration/signup.html'
-    success_url = reverse_lazy('maquina-list')
+    success_url = reverse_lazy('login')
 
 #crear perfil
 
@@ -97,13 +97,10 @@ class ProfileUpdate(LoginRequiredMixin, UserPassesTestMixin,  UpdateView):
         return Profile.objects.filter(user=self.request.user).exists()
 
 #Mensajeria
-
-
 class MensajeCreate(CreateView):
     model = Mensaje
-    success_url = reverse_lazy('maquina-list')
+    success_url = reverse_lazy('maquina-mine')
     fields = '__all__'
-
 
 class MensajeDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Mensaje
@@ -122,3 +119,7 @@ class MensajeList(LoginRequiredMixin, ListView):
         import pdb
         pdb.set_trace
         return Mensaje.objects.filter(destinatario=self.request.user).all()
+
+
+def about(request):
+    return render(request, "AppMaquinas/about.html")

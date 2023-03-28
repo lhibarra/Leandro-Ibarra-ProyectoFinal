@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header nav div div ul li a {
+  padding: 4px;
+}
+
+header nav div div ul li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.img-h {
+  width: 200px;
+  height: 150px;
+  padding: 5px;
+}

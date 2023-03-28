@@ -1,41 +1,37 @@
-{%extends "AppMaquinas/index.html" %}
+{%extends "AppMaquinas/base.html" %}
 
 {% load static %}
-{%block cards %}
+{%block main %}
 
 {% if not maquinas %}
-    <h1>NO HAY MÁQUINAS DICPONIBLES PARA MOSTRAR</h1>
+    <h1>NO HAY MÁQUINAS DISPONIBLES PARA MOSTRAR</h1>
 {% endif %}
-
-
-
-<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
     {% for maquina in maquinas %}
-    <div class="col">
-        <div class="card shadow-sm">
-            <img class="card-img-top" style="height: 225px; width: 100%; display: block;" src="{{maquina.image_url}}"
-                data-holder-rendered="true">
-            <div class="card-body">
-                <p class="card-text">{{maquina.nombre}}</p>
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                    <a href="{% url 'maquina-detail' maquina.id %}" type="button" 
-                        class="btn btn-sm btn-outline-secondary">Detalle</a>
-
-                    {% if user.is_authenticated and user.id == maquina.propietario.id %}
-                        <a href="{% url 'maquina-delete' maquina.id %}" type="button"
-                            class="btn btn-sm btn-outline-secondary">Borrar</a>
-                        <a href="{% url 'maquina-update' maquina.id %}" type="button"
-                            class="btn btn-sm btn-outline-secondary">Actualizar</a>
-                    {% endif %}
+        <div class="col">
+            <div class="card shadow-sm">
+                <div class="div-img">
+                    <p class="card-text nombre">{{maquina.nombre}}</p>
+                    <img class="img-h" src="{{maquina.image_url}}" data-holder-rendered="true">
+                </div>
+                <div class="card-body">
+                    <p class="card-text">${{ maquina.precio }}</p>
+                    <p class="card-text">Estado: <b>{{maquina.estado}}</b></p>
+                    <div>
+                        <div class="btn-group">
+                            <a href="{% url 'maquina-detail' maquina.id %}" type="button"
+                                class="btn btn-sm btn-outline-secondary">Detalle</a>
+                            {% if user.is_authenticated and user.id == maquina.propietario.id %}
+                                <a href="{% url 'maquina-delete' maquina.id %}" type="button"
+                                    class="btn btn-sm btn-outline-secondary">Borrar</a>
+                                <a href="{% url 'maquina-update' maquina.id %}" type="button"
+                                    class="btn btn-sm btn-outline-secondary">Actualizar</a>
+                            {% endif %}
+                        </div>
                     </div>
-                    <small class="text-muted">${{ maquina.precio }}</small>
                 </div>
             </div>
         </div>
-    </div>
     {% endfor %}
-</div>
-
+    </div>
 {% endblock %}

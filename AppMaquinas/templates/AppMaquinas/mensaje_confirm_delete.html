@@ -1,12 +1,15 @@
 {% extends "AppMaquinas/base.html" %}
-
+<main class="main">
 {% load static %}
 
 {% block main %}
-    <p style="margin-top: 10px;">Realmente quieres ELIMINAR el mensaje de {{ mensaje.email }}? </p>
+    <p>Realmente quieres ELIMINAR el mensaje de {{ mensaje.email }}? </p>
     <form method="post">
         {% csrf_token %}
-        <input class="btn btn-danger" type="submit" value="Borrar">
-        <a class="btn btn-primary" href="{% url 'mensaje-list' %}">Cancelar</a>
+        <div class="botones">
+        <input class="btn btn-danger boton" type="submit" value="Borrar">
+        <a class="btn btn-primary boton" href="{% url 'mensaje-list' %}">Cancelar</a>
+        </div>
     </form>
 {% endblock %}
+</main>

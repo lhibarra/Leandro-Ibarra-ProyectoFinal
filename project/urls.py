@@ -17,14 +17,16 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from AppMaquinas.views import ( index, MaquinaList, 
+from AppMaquinas.views import (index, MaquinaList, 
 Login, Logout, SignUp, ProfileCreate, ProfileUpdate, 
 MaquinaMineList, MaquinaUpdate, MaquinaDetail, MaquinaDelete,
-MaquinaCreate, MaquinaSearch, MensajeCreate, MensajeDelete, MensajeList
+MaquinaCreate, MaquinaSearch, MensajeCreate, MensajeDelete, MensajeList,
+about
 )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('about', about, name="about"),
     #urls maquinas
     path('', index, name="index"),
     path('maquina/list', MaquinaList.as_view(), name="maquina-list"),
@@ -46,8 +48,6 @@ urlpatterns = [
     path('mensaje/list', MensajeList.as_view(), name="mensaje-list"),
     path('mensaje/delete/<pk>/', MensajeDelete.as_view(), name="mensaje-delete"),
     
-
-
-
+    
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
